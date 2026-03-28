@@ -1,8 +1,8 @@
 // 1
 // Creating Database connection
 const mysql = require("mysql2/promise");
-const fs = require("fs");
 require("dotenv").config();
+const ssl_string = require("./ssl-certificate");
 
 // Creating Pool
 // Establishing configuration
@@ -16,7 +16,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   ssl: {
-    ca: fs.readFileSync("./tidb-database-certificate.pem"),
+    ca: ssl_string,
   },
 });
 
