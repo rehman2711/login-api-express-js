@@ -28,3 +28,17 @@ INSERT INTO user (id , username , password) VALUES ("1","rehman","rehman4444") ,
 ```
 
 ---
+
+1. Redirect to this url - https://www.pingcap.com
+
+2. Signup using Jaguar-Email-Address
+
+3. Top bar there is Connect Button .
+
+4. You will find all parameter like host , port , username , password , database
+
+5. Reference Images .
+
+![Connect](/public/connect-before-click.png)
+
+![mysql table information](/public/connect-after-click.png)
