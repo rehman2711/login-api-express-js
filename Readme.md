@@ -1,133 +1,55 @@
-## 🧩 Let’s build YOUR login API properly
+# Login API (Express.js)
 
-1. config/db.js
+A structured authentication API built using Express.js with JWT-based authentication and clean backend architecture.
 
-```js
-const mysql = require("mysql2/promise");
+### Description
 
-const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "userdb",
-});
-module.exports = pool;
-```
+This project implements a login system using JSON Web Tokens (JWT) for authentication. It follows a modular architecture by separating routes, controllers, services, and middleware to ensure scalability and maintainability.
 
----
+### Live Endpoint
 
-2. services/authService.js
+https://login-api-express-js.onrender.com/api/v2/login
 
-👉 ONLY business logic + DB calls
+### Tech Stack
 
-```js
-const connection = require("../config/db");
-const getUserByUsername = async (username) => {
-  const query = `SELECT * FROM user WHERE username = ?`;
-  const [rows] = await connection.execute(query, [username]);
-  return rows[0];
-};
+1. Node.js
+2. Express.js
+3. JSON Web Token (JWT)
+4. JavaScript (ES6+)
 
-module.exports = {
-  getUserByUsername,
-};
-```
+### Structure
 
----
+1. controllers → Handles request/response
+2. services → Business logic
+3. routes → API endpoints
+4. middlewares → Error & auth handling
+5. config → Environment setup
 
-3. controllers/authController.js
+### POST `/api/v2/login`
 
-👉 Handles req/res ONLY
+1. Request Body -
 
 ```js
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const { getUserByUsername } = require("../services/authService");
-
-const login = async (req, res) => {
-  try {
-    const { username, password } = req.body;
-
-    if (!username || !password) {
-      return res.status(400).json({
-        message: "All fields required",
-      });
-    }
-
-    const user = await getUserByUsername(username);
-
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found",
-      });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(401).json({
-        message: "Invalid credentials",
-      });
-    }
-
-    const token = jwt.sign(
-      { id: user.id, username: user.username },
-      process.env.MY_SECRET,
-      { expiresIn: "1h" },
-    );
-
-    return res.status(200).json({
-      message: "Login successful",
-      token,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: "Internal server error",
-    });
-  }
-};
-
-module.exports = {
-  login,
-};
+{
+  "email": "rehman",
+  "password": "rehman4444"
+}
 ```
 
----
-
-4. routes/authRoutes.js
-
-👉 ONLY routing
+2. Response Body -
 
 ```js
-const express = require("express");
-const router = express.Router();
-const { login } = require("../controllers/authController");
-
-router.post("/login", login);
+{
+  "success": true,
+  "message": "Login successful",
+  "token": "jwt_token_here"
+}
 ```
 
----
+### Authentication Flow
 
-module.exports = router; 5. app.js
-
-```js
-const express = require("express");
-const authRoutes = require("./routes/authRoutes");
-
-const app = express();
-
-app.use(express.json());
-
-app.use("/api/v1/auth", authRoutes);
-
-module.exports = app;
-📁 6. server.js
-require("dotenv").config();
-const app = require("./app");
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-console.log("Server running on port", PORT);
-});
-```
+1. User sends email & password
+2. Server validates credentials
+3. JWT token is generated
+4. Token is returned to client
+5. Client uses token for protected routes
