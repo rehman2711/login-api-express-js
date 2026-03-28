@@ -3,15 +3,26 @@
 const mysql = require("mysql2/promise");
 const fs = require("fs");
 require("dotenv").config();
+var hk = require("../");
 
 // Creating Pool
 // Establishing configuration
+import path from "path";
+
 const pool = mysql.createPool({
-  user: process.env.DB_USERNAME,
   host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
+  user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  ssl: { ca: fs.readFileSync("../tidb-database-certificate.pem") },
+  database: process.env.DB_DATABASE,
+
+  waitForConnections: true,
+  connectionLimit: 10, // adjust based on traffic
+  queueLimit: 0,
+  ssl: {
+    ca: fs.readFileSync(
+      path.join(process.cwd(), "tidb-database-certificate.pem"),
+    ),
+  },
 });
 
 // Checking the connection Established
