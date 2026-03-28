@@ -1,14 +1,15 @@
 // 1
 // Creating Database connection
 const mysql = require("mysql2/promise");
+require("dotenv").config();
 
 // Creating Pool
 // Establishing configuration
 const pool = mysql.createPool({
-  user: "root",
-  host: "localhost",
-  database: "userdb",
-  password: "",
+  user: process.env.USERNAME,
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
 });
 
 // Checking the connection Established
