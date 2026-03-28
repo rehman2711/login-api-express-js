@@ -3,7 +3,6 @@
 const mysql = require("mysql2/promise");
 const fs = require("fs");
 require("dotenv").config();
-var path = require("path");
 
 // Creating Pool
 // Establishing configuration
@@ -14,12 +13,10 @@ const pool = mysql.createPool({
   database: process.env.DB_DATABASE,
 
   waitForConnections: true,
-  connectionLimit: 10, 
+  connectionLimit: 10,
   queueLimit: 0,
   ssl: {
-    ca: fs.readFileSync(
-      path.join(process.cwd(), "tidb-database-certificate.pem"),
-    ),
+    ca: fs.readFileSync("./tidb-database-certificate.pem"),
   },
 });
 
