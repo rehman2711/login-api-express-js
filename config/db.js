@@ -1,6 +1,7 @@
 // 1
 // Creating Database connection
 const mysql = require("mysql2/promise");
+const fs = require("fs");
 require("dotenv").config();
 
 // Creating Pool
@@ -10,6 +11,7 @@ const pool = mysql.createPool({
   host: process.env.HOST,
   database: process.env.DATABASE,
   password: process.env.PASSWORD,
+  ssl: { ca: fs.readFileSync("./ca.pem") },
 });
 
 // Checking the connection Established
