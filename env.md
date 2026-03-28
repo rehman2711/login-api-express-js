@@ -1,6 +1,6 @@
 MY_SECRET=
-HOST=gateway01.ap-southeast-1.prod.aws.tidbcloud.com
-USERNAME=
-PASSWORD=
-DATABASE=
-PORT=
+DB_HOST=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
+DB_PORT=

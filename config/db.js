@@ -11,7 +11,7 @@ const pool = mysql.createPool({
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
   password: process.env.DB_PASSWORD,
-  ssl: { ca: fs.readFileSync("./tidb-database-certificate.pem") },
+  ssl: { ca: fs.readFileSync("../tidb-database-certificate.pem") },
 });
 
 // Checking the connection Established
