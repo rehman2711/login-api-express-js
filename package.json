@@ -1,14 +1,14 @@
 {
-  "name": "new-api-login",
-  "version": "1.0.0",
-  "description": "",
+  "name": "express-login-api",
+  "version": "1.0.2",
+  "description": "Production-ready login API built with Express.js, designed using best practices for authentication, code organization, and security.",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "rehman-kalawant",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
