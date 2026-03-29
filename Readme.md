@@ -10,21 +10,6 @@ This project implements a login system using JSON Web Tokens (JWT) for authentic
 
 https://login-api-express-js.onrender.com/api/v2/login
 
-### Tech Stack
-
-1. Node.js
-2. Express.js
-3. JSON Web Token (JWT)
-4. JavaScript (ES6+)
-
-### Structure
-
-1. controllers → Handles request/response
-2. services → Business logic
-3. routes → API endpoints
-4. middlewares → Error & auth handling
-5. config → Environment setup
-
 ### POST `/api/v2/login`
 
 1. Request Body -
@@ -45,6 +30,21 @@ https://login-api-express-js.onrender.com/api/v2/login
 }
 
 ```
+
+### Tech Stack
+
+1. Node.js
+2. Express.js
+3. JSON Web Token (JWT)
+4. JavaScript (ES6+)
+
+### Structure
+
+1. controllers → Handles request/response
+2. services → Business logic
+3. routes → API endpoints
+4. middlewares → Error & auth handling
+5. config → Environment setup
 
 ### Authentication Flow
 
