@@ -40,11 +40,10 @@ https://login-api-express-js.onrender.com/api/v2/login
 
 ```js
 {
-{
   "message": "Login successful",
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJyZWhtYW4iLCJpYXQiOjE3NzQ3NzY5NDEsImV4cCI6MTc3NDc4MDU0MX0.3agLOin21F3AJw2nVj0SEW17PdKvy8bN7986Z7QgVaQ"
 }
-}
+
 ```
 
 ### Authentication Flow
