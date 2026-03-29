@@ -5,7 +5,7 @@
 const connection = require("../config/db");
 
 const findUserByUsername = async (username) => {
-  const query = `SELECT * FROM user WHERE username = ?`;
+  const query = `SELECT * FROM users WHERE username = ?`;
   const [rows] = await connection.execute(query, [username]);
   return rows[0]; // return single user
 };
