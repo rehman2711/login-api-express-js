@@ -31,7 +31,7 @@ https://login-api-express-js.onrender.com/api/v2/login
 
 ```js
 {
-  "email": "rehman",
+  "username": "rehman",
   "password": "rehman44"
 }
 ```
@@ -49,7 +49,7 @@ https://login-api-express-js.onrender.com/api/v2/login
 
 ### Authentication Flow
 
-1. User sends email & password
+1. User sends username & password
 2. Server validates credentials
 3. JWT token is generated
 4. Token is returned to client
