@@ -51,4 +51,4 @@ INSERT INTO user (id , username , password) VALUES ("1","rehman","rehman4444") ,
 
 ![phpMyAdmin Interface](/public//phpmyadmin-interface.png)
 
-8. Your remote database is is there in your services
+8. Your remote database is there in your services
