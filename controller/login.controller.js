@@ -27,6 +27,7 @@ const login = async (req, res) => {
       });
     }
 
+    // checking password like this is not good way , but for our scenario of learning and implementing it is okay 
     if (password !== user.password) {
       return res.status(401).json({
         message: "Invalid Password",
